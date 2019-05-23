@@ -1,0 +1,207 @@
+<?php ?>
+<!DOCTYPE html>
+<html>
+<head>
+
+    
+    <title>Convergence</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- for menu  -->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.parallax').parallax();
+        });
+    </script>
+    <script>
+        function makeTimer() {
+
+            var endTime = new Date("September 15, 2019 18:00:00 PDT");         
+            var endTime = (Date.parse(endTime)) / 1000;
+
+            var now = new Date();
+            var now = (Date.parse(now) / 1000);
+
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400); 
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+            $("#days").html(days + "<span class='time'>Days</span>");
+            $("#hours").html(hours + "<span class='time'>Hours</span>");
+            $("#minutes").html(minutes + "<span class='time'>Minutes</span>");
+            $("#seconds").html(seconds + "<span class='time'>Seconds</span>");       
+
+    }
+
+    setInterval(function() { makeTimer(); }, 1000);
+    </script>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+    <style type="text/css" href="css/custom.css">
+@import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+
+body, html {
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: #000;
+}
+
+.parallax { 
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+#days {
+  font-size: 200px;
+  color: #db4844;
+}
+#hours {
+  font-size: 150px;
+  color: #f07c22;
+}
+#minutes {
+  font-size: 100px;
+  color: #f6da74;
+}
+#seconds {
+  font-size: 50px;
+  color: #abcd58;
+}
+
+.timer {
+  display: inline-block;
+  line-height: 1;
+  padding: 20px;
+  font-size: 40px;
+}
+
+.time {
+  display: block;
+  font-size: 20px;
+  color: white;
+}
+
+.top {
+  text-align: center;
+  font-family: 'Covered By Your Grace', cursive;
+  color: white;
+  margin-top: 10vh;
+  background-color: black;
+
+}
+.parallax-container{
+    height: 100vh;
+}
+        .top{
+        }
+        hr {
+            margin: auto;
+            width: 40%;
+            background-color: white;
+        }
+.logo{
+  content:url('images/logo-main.png');
+  width: 40vh; 
+}
+@media screen and (max-width: 600px) {
+  .logo{
+    display: none;
+  }
+}
+
+.menu-icons{
+  width: 60px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: -5px
+}
+
+    </style>
+</head>
+<body>
+    <!-- Menu starts -->
+    <ul id="gn-menu" class="gn-menu-main">
+        <li class="gn-trigger">
+          <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+          <nav class="gn-menu-wrapper">
+            <div class="gn-scroller">
+              <ul class="gn-menu">
+                
+                <li>
+                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">home</i></div><div>Home</div></a>    
+                </li>
+                <li>
+                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">event</i></div><div>Events</div></a>    
+                </li>
+                <li>
+                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">person_add</i></div><div>Registration</div></a>    
+                </li>
+                <li>
+                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">get_app</i></div><div>Downloads</div></a>    
+                </li>
+                <li>
+                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">people</i></div><div>Organizing Committee</div></a>    
+                </li>
+              </ul>
+            </div><!-- /gn-scroller -->
+          </nav>
+        </li>
+        <li>
+          <img class="logo"/>
+        </li>
+        
+        <li><a class="codrops-icon codrops-icon-drop"style="display: flex;"><div style="margin-top: 5px;padding-right: 9px;text-align: center;"><i class="material-icons">person</i></div><div>Login</div></a></li>
+      </ul>
+    <!-- Menu Ends -->
+    
+    <div>
+        <div class="parallax top">
+                <h1 style="font-family: 'Baloo Bhai', cursive; padding-top: 20px">Launching in</h1>
+                <hr>
+
+                <div id="timer" class="timer">
+                    <div id="days" class="timer"></div>
+                    <div id="hours" class="timer"></div>
+                    <div id="minutes" class="timer"></div>
+                    <div id="seconds" class="timer"></div>
+                </div>
+        </div>
+    </div>
+   
+
+    <script src="js/classie.js"></script>
+    <script src="js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    
+</body>
+</html>
