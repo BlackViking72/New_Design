@@ -3,7 +3,6 @@
 body, html {
   margin: 0;
   scroll-behavior: smooth;
-  background-color: #17182f;
 }
 
 
@@ -39,13 +38,16 @@ body, html {
 
 .top {
   display: block;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   font-family: 'Covered By Your Grace', cursive;
   color: white;
-  margin-top: 40vh;
+  /*padding-top: 5px;*/
+  border: 1px white solid;
+  border-radius: 7px;
+  -moz-box-shadow:    inset 0 0 10px #fff;
+   -webkit-box-shadow: inset 0 0 10px #fff;
+   box-shadow:         inset 0 0 10px #fff;
+   background-color: rgba(23,24,47,0.5);   
 }
 
 hr {
@@ -63,5 +65,10 @@ hr {
 }
 
 @media screen and (max-width: 600px) {
-
+/*  .top {      
+    left:0%;
+  }*/
 }
+
+
+
