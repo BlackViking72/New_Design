@@ -22,12 +22,20 @@
 	function gnMenu( el, options ) {	
 		this.el = el;
 		this._init();
-	}
 
+	}
+	
 	gnMenu.prototype = {
 		_init : function() {
 			this.trigger = this.el.querySelector( 'a.gn-icon-menu' );
 			this.menu = this.el.querySelector( 'nav.gn-menu-wrapper' );
+			this.items = [];
+			
+			for(var i=0;i<5;i++){
+				this.items[i]=this.el.querySelector( "a#menu-items"+(i+1) );								
+				// alert(this.items[i]);
+			}
+			// alert(this.items_name[1]);
 			this.isMenuOpen = false;
 			this.eventtype = mobilecheck() ? 'touchstart' : 'click';
 			this._initEvents();
@@ -63,6 +71,21 @@
 				}
 			} );
 			this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
+var items_name = ["#Home","#Events","#Registration","#Downloads","#OrganizingCommittee"];
+			for(var i=0;i<5;i++){
+				var temp_var = i;
+				this.items[i].addEventListener('click',function(event){
+				event.preventDefault();	
+				
+				// alert($(this).attr('class'));
+				 // var temp =items_name[temp_var];
+				 // alert(temp);
+				
+				self._closeMenu();
+				self._closeIconMenu();
+				$(window).scrollTop($($(this).attr('class')).offset().top);
+			});
+			}		
 		},
 		_openIconMenu : function() {
 			classie.add( this.menu, 'gn-open-part' );

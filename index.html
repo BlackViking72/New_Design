@@ -10,8 +10,8 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Compiled and minified CSS -->
  <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
@@ -66,23 +66,11 @@
     display: none;
   }
 }
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
 
-.column {
-  display: flex;  
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
     </style>
 
 </head>
-<body id="particles-js">
+<body id="particles-js" onscroll="document.getElementById('temp')style.display='none';">
 
   <!-- Menu starts -->
     <ul id="gn-menu" class="gn-menu-main">
@@ -93,19 +81,19 @@
               <ul class="gn-menu">
                 
                 <li>
-                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">home</i></div><div>Home</div></a>    
+                  <a class="#home" style="display: flex;" href="" id="menu-items1"><div class="menu-icons"><i class="material-icons">home</i></div><div>Home</div></a>    
                 </li>
                 <li>
-                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">event</i></div><div>Events</div></a>    
+                  <a class="#events" style="display: flex;" href="" id="menu-items2"><div class="menu-icons"><i class="material-icons"  onclick="">event</i></div><div>Events</div></a>    
                 </li>
                 <li>
-                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">person_add</i></div><div>Registration</div></a>    
+                  <a class="#registration" style="display: flex;" href="" id="menu-items3"><div class="menu-icons"><i class="material-icons">person_add</i></div><div>Registration</div></a>    
                 </li>
                 <li>
-                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">get_app</i></div><div>Downloads</div></a>    
+                  <a class="#downloads" style="display: flex;" href="" id="menu-items4"><div class="menu-icons"><i class="material-icons">get_app</i></div><div>Downloads</div></a>    
                 </li>
                 <li>
-                  <a class="" style="display: flex;" href=""><div class="menu-icons"><i class="material-icons">people</i></div><div>Organizing Committee</div></a>    
+                  <a class="#organizing_committee" style="display: flex;" href="" id="menu-items5"><div class="menu-icons"><i class="material-icons">people</i></div><div>Organizing Committee</div></a>    
                 </li>
               </ul>
             </div><!-- /gn-scroller -->
@@ -121,15 +109,17 @@
 
 
 <div style="position: absolute;width: 100%">
-
-<div class="row" style="margin-top: 60px;">
-  <div class="top column">
-                <h1 style="font-family: 'Baloo Bhai', cursive;">Launching in</h1>
+<div id="home"></div>
+<div class="row-custom" style="margin-top: 60px;">
+  <div class="top">    
+  <div class="row-custom" ><img src="images/logo-main.png" height="100%" width="100%" style="margin-top: 10px"></div>
+  <div class=" col-sm-12 col-md-12 col-lg-12">
+                <h1 style="font-family: 'Baloo Bhai', cursive;padding-top: 10px">Launching in</h1>
                 <hr>                
 
                 <div id="timer" class="timer">
                     <div id="days" class="timer"></div>
-                    <div style="display: inline-flex;">
+                    <div style="display:inline-table;">
                     <div id="hours" class="timer"></div>
                     <div id="minutes" class="timer"></div>
                     <div id="seconds" class="timer"></div>            
@@ -137,9 +127,11 @@
                 </div>
             </div>
           </div>
-<div class="row">
-  <div class="column" style="background-color: black">asd</div>
-  <div class="column" style="background-color: yellow">asd</div>
+
+
+<div class="row-custom" style="height: 100vh;" id="events">
+  <div class="row-custom glow" style="margin-top: 20px">Events</div>
+</div>
 </div>
 </div>
   <!-- Javascripts -->
