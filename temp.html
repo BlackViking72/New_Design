@@ -1,94 +1,787 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style type="text/css">
-    	body
+<?php
+
+session_start();
+
+        if(isset($_POST['btnlogin']))
+
+        {
+
+          //include_once('include/DBConnection.php')
+
+          include_once('../registration/include/DBConnection.php');
+
+          include('../login/login.php');
+
+          if("invalid"==lg($_POST['uname'],$_POST['pwdlogin'],$con))
+
+          {
+
+            echo "<script>alert('Invalid email id or password..');</script>";
+
+          }
+
+
+
+        }
+
+         if(isset($_POST['btnforget']))
+
+        {
+
+          include_once('../registration/include/DBConnection.php');
+
+          $cmpemail=trim($_POST['uname']);
+
+          $qu="select * from studentdata where email='".$cmpemail."'";
+
+          $rs=mysqli_query($con,$qu);
+
+          $co=mysqli_num_rows($rs);
+
+          $row=mysqli_fetch_array($rs);
+
+          if($co>0)
+
+          {
+
+
+
+            $_SESSION['email']=$cmpemail;
+
+            $_SESSION['fname']=$row['fname'];
+
+            $_SESSION['lname']=$row['lname'];
+
+            $_SESSION['enrlno']=$row['enrlno'];
+
+            $_SESSION['pwd']=$row['pwd'];
+
+            $_SESSION['mobile']=$row['mobile'];
+
+            $_SESSION['clg']=$row['college'];
+
+            header('Location: ../registration/module/forgot_mail.php');
+
+            exit();
+
+          }
+
+          else
+
+          {
+
+             echo "<script>alert('Sorry,Email is not registered.!');</script>";
+
+             echo "<script>window.location.href = 'events.php';</script>";
+
+          }
+
+
+
+
+
+        }
+
+       // mysqli_close($con);
+
+?><!DOCTYPE html>
+
+<html style="margin-bottom:-20px;">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+	<title>Events|Convergence2017</title>
+
+    <link rel="stylesheet" href="../css/normalize.css">
+
+ <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/bootstrap-material-design.css'>
+
+<link rel='stylesheet prefetch' href='https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/css/ripples.css'>
+
+<link rel='stylesheet prefetch' href='https://rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css'>
+
+        <link rel="stylesheet" href="../css/style.css">
+
+		<link rel="stylesheet" href="../css/animate.css">
+
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+
+<script src='https://rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js'></script>
+
+<script src='https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.js'></script>
+
+<script src='https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/ripples.js'></script>
+
+<script src="files/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+<link rel="stylesheet" href="files/animate.css">
+        <script src="../js/index.js"></script>
+
+		<style>
+
+		 *{ font-family: 'Ubuntu', sans-serif;}
+
+		.panel:hover
+
+		{
+
+			transition:transform 0.4s !important;
+
+			transform:translate(0px,-10px) !important;
+
+			background:#666 url(images/pattern.png) !important;
+
+      color: #fff;
+
+		}
+            body
+            {
+                background:url("images/bg8.png");
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .navbar-custom
+            {
+
+                background: black;
+            }
+            .panel-body
+            {
+                background: rgba(0,0,0,0.9);
+            }
+            h3
+            {
+                color: white;
+            }
+
+    @media only screen and (max-width: 530px)
 {
-	margin: 0;
-	padding: 0;
-}
-section
-{
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	background: url('images/Parallax-1.jpg');
-}
-section:before
-{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: url('images/Parallax-1.jpg');
-	opacity: .5;
-	mix-blend-mode: hard-light;
-}
-section:hover:before
-{
-	animation: animate .2s linear infinite;
-}
-@keyframes animate
-{
-	0%
+
+
+
+	.btn.btn-fab
 	{
-		background-position: 0 0;
-		filter: hue-rotate(0deg);
+		margin:-2px;
+		min-width:10px;
+		height:40px;
+		width:40px;
 	}
-	10%
-	{
-		background-position: 5px 0;
-	}
-	20%
-	{
-		background-position: -5px 0;
-	}
-	30%
-	{
-		background-position: 15px 0;
-	}
-	40%
-	{
-		background-position: -5px 0;
-	}
-	50%
-	{
-		background-position: -25px 0;
-	}
-	60%
-	{
-		background-position: -50px 0;
-	}
-	70%
-	{
-		background-position: 0 -20px;
-	}
-	80%
-	{
-		background-position: -60px -20px;
-	}
-	81%
-	{
-		background-position: 0 0;
-	}
-	100%
-	{
-		background-position: 0 0;
-		filter: hue-rotate(360deg);
+
+	.circle {
+
+		height:38px;
+		width:38px;
 	}
 }
-    </style>
-</head>
-<body>
-	<section>
-<div class="box">
-    <h1>Transparent Text Effects</h1>
+
+
+
+		</style>
+
+
+
+		<!--ICO-->
+
+		 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon.ico">
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon.ico">
+
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon.ico">
+
+                    <link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
+
+                                   <link rel="shortcut icon" href="images/favicon.ico">
+
+
+
+
+  </head>
+
+
+
+  <body>
+
+
+
+    <div class="navbar navbar-custom navbar-fixed-top">
+
+              <div class="container">
+
+                <div class="navbar-header">
+
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                    <span class="icon-bar"></span>
+
+                  </button>
+
+                  <a class="navbar-brand" href="../index.php" title="HOME"><i class="material-icons">home</i></a>
+
+
+
+                </div>
+
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+
+
+                  <ul class="nav navbar-nav navbar-right">
+
+
+
+					<li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal"><i class="material-icons">touch_app</i>LOGIN</a></li>
+
+                    <li class="active"><a href="#"><i class="material-icons">receipt</i>EVENT</a></li>
+
+					<li><a href="../registration/registration.php"><i class="material-icons">perm_identity</i>REGISTRATION</a></li>
+
+					<li><a href="../download/download.php"><i class="material-icons">play_for_work</i>DOWNLOAD</a></li>
+
+					<li><a href="contactus.php"><i class="material-icons">record_voice_over</i> CONTACT US</a></li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+  <div class="container">
+
+    <div class="modal fade" id="myModal" role="dialog">
+
+    <div class="modal-dialog">
+
+
+
+      <!-- Modal content-->
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h4 class="modal-title">Log In</h4>
+
+        </div>
+
+        <div class="modal-body">
+
+        <form class="form-horizontal"method="post">
+
+ <div class="form-group">
+
+    <label for="inputFirstname" class="col-md-2 control-label"><i class="material-icons">account_circle</i></label>
+
+      <div class="col-md-10">
+        <input type="email" name="uname" class="form-control" id="inputFirstName" placeholder="Email Id" size="20">
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+     <label for="inputFirstname" class="col-md-2 control-label"> <i class="material-icons">lock_open</i></label>
+
+
+
+
+
+      <div class="col-md-10">
+
+        <input type="password" name="pwdlogin" class="form-control" id="inputLastName" placeholder="Password">
+
+      </div>
+
+    </div>
+
+
+
+    <div class="form-group">
+
+      <div class="col-md-10 col-md-offset-2">
+
+        <button type="submit" name="btnlogin" class="btn btn-primary btn-raised">LogIn</button>
+
+        <a href="" class="btn btn-default" data-toggle="modal" data-target="#forgPass" onclick="tglmain()">Forgot Password?</a>
+
+
+
+      </div>
+
+    </div>
+
+</form>
+
+
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" id="myCheck" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
 </div>
-</section>
-</body>
+
+</div>
+
+<div class="container">
+
+<div class="modal fade" id="forgPass" role="dialog">
+
+    <div class="modal-dialog">
+
+
+
+      <!-- Modal content-->
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h4 class="modal-title">Forgot Password</h4>
+
+        </div>
+
+        <div class="modal-body">
+
+        <form class="form-horizontal" method="post">
+
+ <div class="form-group">
+
+    <label for="inputFirstname" class="col-md-2 control-label"><i class="material-icons">account_circle</i></label>
+
+
+
+
+
+      <div class="col-md-10">
+
+        <input type="email" name="uname" class="form-control" id="inputFirstName" placeholder="Email id" size="20">
+
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-md-10 col-md-offset-2">
+
+        <button type="submit" name="btnforget" class="btn btn-primary btn-raised">submit</button>
+
+        <a href="" class="btn btn-default" data-toggle="modal" data-target="#forgPass">close</a>
+
+
+
+      </div>
+
+    </div>
+
+</form>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div></div>
+
+<script>
+
+function tglmain(){
+
+document.getElementById("myCheck").click();
+
+}
+
+</script>
+
+<!--events goes here-->
+
+<br>
+
+<div class="container">
+
+  <div class="row">
+
+
+
+<div class="col-md-4 bounceInRight animated">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="me.php">
+
+          <img src="images/mechanic-3.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+          <h3>Mech-A-Nizer</h3>
+
+                    <h3><a href="me.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+    </div></div>
+
+		<div class="col-md-4 bounceInUp animated">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="civil.php">
+
+					<img src="images/civil-2.png" class="img-circle" style="border:none !important;" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Constructo</h3>
+
+                    <h3><a href="civil.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+
+
+		</div></div>
+
+		<div class="col-md-4  bounceInUp animated ">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="ce.php">
+
+					<img src="images/ceit-1.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Infocrats</h3>
+
+                    <h3><a href="ce.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+		</div></div>
+
+
+
+	</div>
+
+	</div>
+
+<div class="container">
+
+  <div class="row">
+
+  <div class="col-md-4 bounceIn animated"><div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div class="text-center">
+
+                    <a href="bm.php">
+
+					<img src="images/bm-1.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Bio-Fusion</h3>
+
+                    <h3><a href="bm.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+		</div></div>
+
+		<div class="col-md-4 bounceInDown animated">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="ec.php">
+
+					<img src="images/ec2.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>ElectroSpectro</h3>
+
+                    <h3><a href="ec.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+
+
+		</div></div>
+      <div class="col-md-4"><div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div class="text-center">
+
+                    <a href="ee.php">
+
+					<img src="images/bulb-1.jpg" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Electabuzz</h3>
+
+                    <h3><a href="ee.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+		</div></div>
+
+	</div>
+
+	</div>
+
+	<div class="container">
+
+  <div class="row">
+
+
+
+
+
+
+
+	<div class="col-md-4">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="marine.php">
+
+					<img src="images/marine-2.png" style="border:none !important;" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Tech-marino</h3>
+
+                    <h3><a href="marine.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+		</div></div>
+       <div class="col-md-4 bounceIn animated"><div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div class="text-center">
+
+                    <a href="maths.php">
+
+					<img src="images/maths.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>Eureka-Maths</h3>
+
+                    <h3><a href="maths.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+		</div></div>
+
+     <div class="col-md-4  bounceInLeft animated" >
+
+  <div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div class="text-center">
+
+                    <a href="common.php">
+
+          <img src="images/common-1.jpg" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+          <h3>General Events</h3>
+
+                    <h3><a href="common.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+    </div></div>
+
+
+
+	</div>
+
+	</div>
+
+	<div class="container">
+
+  <div class="row">
+
+
+
+		<!--<div class="col-md-6 bounceInDown animated">
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+                <div  class="text-center">
+
+                    <a href="ec.php">
+
+					<img src="images/mca.png" class="img-circle" height="200px" width="200px">
+
+                    </a>
+
+					<h3>MCA</h3>
+
+                    <h3><a href="mca.php" class="btn btn-primary btn-raised btn-fab"><i class="material-icons">keyboard_arrow_right</i></a></h3>
+
+                </div>
+
+            </div>
+
+
+
+		</div></div>	-->
+
+	</div>
+
+	</div>
+
+<!--footer starts here-->
+
+
+<div class="container-fluid" style="width:100%;background-color:rgba(0,0,0,0.7);">
+<center>
+<div class="row" style="width:100%;padding:30px;">
+
+<div class="col-lg-4" style="margin-bottom:10px;">
+<center>
+<a href="http://www.uvpce.ac.in">
+<img class="img-responsive" class="wow slideInUp" style="max-height:250px !important;max-width:200px !important; " src="images/logo.png">
+</a>
+</center>
+</div>
+
+<div class="col-lg-4" style="margin-bottom:10px;">
+<center>
+<a href="contactus.php#wt" class="btn" style="border:1px solid #fff !important;color:#fff !important;">
+WEB TEAM
+</a>
+</center>
+</div>
+
+
+
+<div class="col-xs-12 col-lg-4" style="margin-bottom:10px;">
+
+<a href="https://www.facebook.com/convergence.uvpce/" target="_blank" class="btn btn-fab">
+<img src="images/social/fb.gif" class="img-circle img-responsive circle"></a>
+
+<a href="https://plus.google.com/u/0/+ConvergenceUvpce" target="_blank" class="btn btn-fab"><img src="images/social/gp.png" class="img-circle img-responsive circle"></a>
+
+<a href="https://www.instagram.com/convergence_17/" target="_blank" class="btn btn-fab"><img src="images/social/insta-2.png" class="img-circle img-responsive circle"></a>
+
+<a href="https://www.youtube.com/channel/UCULP6Pp1dsmWvX-lKp4RCCA" target="_blank" class="btn btn-fab"><img src="images/social/yt.png" class="img-circle img-responsive circle"></a>
+
+</div>
+
+</div>
+</center>
+
+
+<div class="row">
+<div class="col-xs-12" style="color:#fff !important;margin-top:-20px">
+
+<center>
+&copy;All Copyrights reserved to UVPCE.
+</center>
+</div>
+</div>
+
+</div>
+
+
+<!-- End of footer -->
+
+<!--sliding menu goes here-->
+
+
+
+
+
+
+
+ </body>
+
 </html>
