@@ -46,12 +46,12 @@ body, html {
   font-family: 'Covered By Your Grace', cursive;
   color: white;
   /*padding-top: 5px;*/
-  border: 1px white solid;
+  /* border: 1px white solid;
   border-radius: 7px;
   -moz-box-shadow: inset 0 0 10px #fff;
   -webkit-box-shadow: inset 0 0 10px #fff;
-  box-shadow: inset 0 0 10px #fff;
-  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px #fff; */
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 hr {
@@ -186,12 +186,15 @@ border-bottom-right-radius: 12px;
     position: relative;
     opacity: 0.8;
 }
-
+a:hover{
+  text-decoration: none;
+}
 .card-custom:hover .card__info-hover {
     opacity: 1;
 }
 /* Events cards ends */
 
+/* Scrollbar start */
 
 /* width */
 ::-webkit-scrollbar {
@@ -211,4 +214,12 @@ background-color: transparent;
 background-color: white;
 /* background-image: linear-gradient(black,white,grey); */
 border-radius: 10px;
+}
+/* Scrollbar ends */
+
+.footer{
+  bottom:0;
+  z-index:100;
+  background-color:rgba(255,255,255,0.2);
+  margin-top:50px;
 }

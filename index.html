@@ -75,9 +75,6 @@
         display: none;
       }
     }
-
-
-
   </style>
 
 </head>
@@ -131,7 +128,7 @@
     </li>
 
     <li><a class="codrops-icon codrops-icon-drop" style="display: flex;">
-        <div style="margin-top: 5px;padding-right: 9px;text-align: center;"><i class="material-icons">person</i></div>
+        <div style="margin-top: 5px;padding-right: 9px;text-align: center;"><i class="material-icons" style="margin-bottom:10px">person</i></div>
         <div>Login</div>
       </a></li>
   </ul>
@@ -140,7 +137,7 @@
 
   <div style="position: absolute;width: 100%;">
     <div id="home"></div>
-    <div class="row-custom" style="margin-top: 60px;">
+    <div class="row-custom" style="margin-top: 60px;height:100vh">
       <div class="top">
         <div class="row-custom"><img src="images/logo-main.png" height="100%" width="100%" style="margin-top: 10px"></div>
         <div class=" col-sm-12 col-md-12 col-lg-12">
@@ -159,28 +156,28 @@
       </div>
 
 
-      <div class="row-custom" style="height: 100vh;" id="events">
+      <div class="row-custom" style="" id="events">
         <div class="row-custom glow" style="margin-top: 20px">Events</div>
         <div class="row-custom">
-          <section class="cards col-md-4 col-sm-12">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
+
+          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+            <article class="card-custom card--1">
+              <div class="card__info-hover">
+                <b style="color:black">Click to Open</b>
+              </div>
+              <div class="card__img" style="background-image: url('images/mechanic-3.png');">
+              </div>
+              <a href="#home" class="card_link">
+                <div class="card__img--hover" style="background-image: url('images/mechanic-3.png');">
                 </div>
-                <div class="card__img" style="background-image: url('images/mechanic-3.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/mechanic-3.png');">
-                  </div>
-                </a>
+              </a>
+              <a href="#home">
                 <div class="card__info">
                   <h3 class="card__title">Mech-A-Nizer</h3>
                 </div>
-              </article>
-            </a>
+              </a>
+            </article>
           </section>
-
           <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
             <a href="#home">
               <article class="card-custom card--1">
@@ -193,9 +190,11 @@
                   <div class="card__img--hover" style="background-image: url('images/civil-2.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Constructo</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Constructo</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -212,9 +211,11 @@
                   <div class="card__img--hover" style="background-image: url('images/ceit-1.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Infocrats</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Infocrats</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -233,9 +234,11 @@
                   <div class="card__img--hover" style="background-image: url('images/bm-1.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Bio-Fusion</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Bio-Fusion</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -252,9 +255,11 @@
                   <div class="card__img--hover" style="background-image: url('images/ec2.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">ElectroSpectro</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">ElectroSpectro</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -271,9 +276,11 @@
                   <div class="card__img--hover" style="background-image: url('images/bulb-1.jpg');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Electabuzz</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Electabuzz</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -292,9 +299,11 @@
                   <div class="card__img--hover" style="background-image: url('images/marine-2.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Tech-Marino</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Tech-Marino</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -311,9 +320,11 @@
                   <div class="card__img--hover" style="background-image: url('images/maths.png');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">Eureka-Maths</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Eureka-Maths</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
@@ -330,17 +341,47 @@
                   <div class="card__img--hover" style="background-image: url('images/common-1.jpg');">
                   </div>
                 </a>
-                <div class="card__info">
-                  <h3 class="card__title">General Events</h3>
-                </div>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">General Events</h3>
+                  </div>
+                </a>
               </article>
             </a>
           </section>
 
         </div>
       </div>
+
+      <div class="row-custom footer">
+        <div class="row-custom">
+          <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
+            <center>
+              <a href="http://www.uvpce.ac.in">
+                <img class="img-responsive" class="" style="max-height:250px !important;max-width:200px !important; " src="images/logo.png" />
+              </a>
+            </center>
+          </div>
+          <div class="col-md-4 col-lg-4"></div>
+          <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
+            <center>
+              <a href="https://www.facebook.com/convergence.uvpce/" target="_blank" class="btn btn-fab">
+                <img src="images/Social_Icons/facebook.png" class="img-responsive" height="100%" width="100%"></a>
+              <a href="https://plus.google.com/u/0/+ConvergenceUvpce" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/google-plus.png" class="img-responsive" height="100%" width="100%"></a>
+
+              <a href="https://www.instagram.com/convergence_17/" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/instagram.png" class="img-responsive" height="100%" width="100%"></a>
+
+              <a href="https://www.youtube.com/channel/UCULP6Pp1dsmWvX-lKp4RCCA" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/youtube.png" class="img-responsive" height="100%" width="100%"></a>
+            </center>
+          </div>
+        </div>
+        <div class="row-custom" style="color:white;display:inline-block;text-align:center;padding-bottom:10px;padding-top: 30px;">
+            &copy;All Copyrights reserved to UVPCE.
+        </div>
+      </div>
     </div>
   </div>
+
   <!-- Javascripts -->
   <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
   <script src="js/particlesJS.js"></script>
