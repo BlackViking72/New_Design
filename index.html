@@ -1,509 +1,639 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Convergence</title>
+  <head>
+    <title>Convergence</title>
 
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/bootstrap-material-design.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/bootstrap-material-design.css'>
 
-  <!-- Compiled and minified CSS -->
-  <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Resource style -->
+    <script src="js/modernizr.js"></script>
+    <!-- Modernizr -->
+    <!-- Compiled and minified CSS -->
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
-  <link rel="stylesheet" type="text/css" href="css/particle.css" />
+    <link rel="stylesheet" type="text/css" href="css/particle.css" />
 
-  <!-- for menu  -->
-  <link rel="stylesheet" type="text/css" href="css/component.css" />
-  <script src="js/modernizr.custom.js"></script>
+    <!-- for menu  -->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/custom.css">
-  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 
-  <script type="text/javascript">
-    function makeTimer() {
+    <script type="text/javascript">
+      function makeTimer() {
 
-      var endTime = new Date("September 15, 2019 18:00:00 PDT");
-      var endTime = (Date.parse(endTime)) / 1000;
+        var endTime = new Date("September 15, 2019 18:00:00 PDT");
+        var endTime = (Date.parse(endTime)) / 1000;
 
-      var now = new Date();
-      var now = (Date.parse(now) / 1000);
+        var now = new Date();
+        var now = (Date.parse(now) / 1000);
 
-      var timeLeft = endTime - now;
+        var timeLeft = endTime - now;
 
-      var days = Math.floor(timeLeft / 86400);
-      var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-      var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
-      var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+        var days = Math.floor(timeLeft / 86400);
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
 
-      if (hours < "10") {
-        hours = "0" + hours;
+        if (hours < "10") {
+          hours = "0" + hours;
+        }
+        if (minutes < "10") {
+          minutes = "0" + minutes;
+        }
+        if (seconds < "10") {
+          seconds = "0" + seconds;
+        }
+
+        $("#days").html(days + "<span class='time'>Days</span>");
+        $("#hours").html(hours + "<span class='time'>Hours</span>");
+        $("#minutes").html(minutes + "<span class='time'>Minutes</span>");
+        $("#seconds").html(seconds + "<span class='time'>Seconds</span>");
+
       }
-      if (minutes < "10") {
-        minutes = "0" + minutes;
+
+      setInterval(function() {
+        makeTimer();
+      }, 1000);
+    </script>
+    <style type="text/css">
+      html {
+        background: url(images/background.gif) no-repeat center center fixed;
+        background-size: cover;
       }
-      if (seconds < "10") {
-        seconds = "0" + seconds;
-      }
 
-      $("#days").html(days + "<span class='time'>Days</span>");
-      $("#hours").html(hours + "<span class='time'>Hours</span>");
-      $("#minutes").html(minutes + "<span class='time'>Minutes</span>");
-      $("#seconds").html(seconds + "<span class='time'>Seconds</span>");
-
-    }
-
-    setInterval(function() {
-      makeTimer();
-    }, 1000);
-  </script>
-  <style type="text/css">
-    .logo {
-      content: url('images/logo-main.png');
-      width: 40vh;
-    }
-
-    @media screen and (max-width: 600px) {
       .logo {
-        display: none;
+        content: url('images/logo-main.png');
+        width: 40vh;
+        /* margin-top: 13px; */
       }
-    }
 
-    .h1 {
-      font-size: 23px;
-    }
+      @media screen and (max-width: 600px) {
+        .logo {
+          display: none;
+        }
+      }
 
-    .form {
-      width: 300px;
-      padding: 20px 15px 24px;
-      margin: 0 auto;
-    }
+      .h1 {
+        font-size: 23px;
+      }
 
-    .form .control {
-      margin: 0 0 24px;
-    }
+      .form {
+        width: 300px;
+        padding: 20px 15px 24px;
+        margin: 0 auto;
+      }
 
-    .form .control input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 0;
-      background: transparent;
-      color: #fff;
-      font-family: monospace, serif;
-      letter-spacing: 0.05em;
-      font-size: 16px;
-    }
+      .form .control {
+        margin: 0 0 24px;
+      }
 
-    .form .control input:hover,
-    .form .control input:focus {
-      outline: none;
-      border: 0;
-    }
+      .form .control input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font-family: monospace, serif;
+        letter-spacing: 0.05em;
+        font-size: 16px;
+      }
 
-    .form .btn {
-      width: 100%;
-      display: block;
-      padding: 14px 16px;
-      background: transparent;
-      outline: none;
-      border: 0;
-      color: #fff;
-      letter-spacing: 0.1em;
-      font-weight: bold;
-      font-family: monospace;
-      font-size: 16px;
-    }
+      .form .control input:hover,
+      .form .control input:focus {
+        outline: none;
+        border: 0;
+      }
 
-    .block-cube {
-      position: relative;
-    }
+      .form .btn {
+        width: 100%;
+        display: block;
+        padding: 14px 16px;
+        background: transparent;
+        outline: none;
+        border: 0;
+        color: #fff;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 16px;
+      }
 
-    .block-cube .bg-top {
-      position: absolute;
-      height: 10px;
-      background: #020024;
-      background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
-      bottom: 100%;
-      left: 5px;
-      right: -5px;
-      transform: skew(-45deg, 0);
-      margin: 0;
-    }
+      .block-cube {
+        position: relative;
+      }
 
-    .block-cube .bg-top .bg-inner {
-      bottom: 0;
-    }
+      .block-cube .bg-top {
+        position: absolute;
+        height: 10px;
+        background: #020024;
+        background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+        bottom: 100%;
+        left: 5px;
+        right: -5px;
+        transform: skew(-45deg, 0);
+        margin: 0;
+      }
 
-    .block-cube .bg {
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: #020024;
-      background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
-    }
+      .block-cube .bg-top .bg-inner {
+        bottom: 0;
+      }
 
-    .block-cube .bg-right {
-      position: absolute;
-      background: #020024;
-      background: #00d4ff;
-      top: -5px;
-      z-index: 0;
-      bottom: 5px;
-      width: 10px;
-      left: 100%;
-      transform: skew(0, -45deg);
-    }
+      .block-cube .bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #020024;
+        background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+      }
 
-    .block-cube .bg-right .bg-inner {
-      left: 0;
-    }
+      .block-cube .bg-right {
+        position: absolute;
+        background: #020024;
+        background: #00d4ff;
+        top: -5px;
+        z-index: 0;
+        bottom: 5px;
+        width: 10px;
+        left: 100%;
+        transform: skew(0, -45deg);
+      }
 
-    .block-cube .bg .bg-inner {
-      transition: all 0.2s ease-in-out;
-    }
+      .block-cube .bg-right .bg-inner {
+        left: 0;
+      }
 
-    .block-cube .bg-inner {
-      background: #212121;
-      position: absolute;
-      left: 2px;
-      top: 2px;
-      right: 2px;
-      bottom: 2px;
-    }
+      .block-cube .bg .bg-inner {
+        transition: all 0.2s ease-in-out;
+      }
 
-    .block-cube .text {
-      position: relative;
-      z-index: 2;
-    }
+      .block-cube .bg-inner {
+        background: #212121;
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+      }
 
-    .block-cube.block-input input {
-      position: relative;
-      z-index: 2;
-    }
+      .block-cube .text {
+        position: relative;
+        z-index: 2;
+      }
 
-    .block-cube.block-input input:focus~.bg-right .bg-inner,
-    .block-cube.block-input input:focus~.bg-top .bg-inner,
-    .block-cube.block-input input:focus~.bg-inner .bg-inner {
-      top: 100%;
-      background: rgba(255, 255, 255, 0.5);
-    }
+      .block-cube.block-input input {
+        position: relative;
+        z-index: 2;
+      }
 
-    .block-cube.block-input .bg-top,
-    .block-cube.block-input .bg-right,
-    .block-cube.block-input .bg {
-      background: rgba(255, 255, 255, 0.5);
-      transition: background 0.2s ease-in-out;
-    }
+      .block-cube.block-input input:focus~.bg-right .bg-inner,
+      .block-cube.block-input input:focus~.bg-top .bg-inner,
+      .block-cube.block-input input:focus~.bg-inner .bg-inner {
+        top: 100%;
+        background: rgba(255, 255, 255, 0.5);
+      }
 
-    .block-cube.block-input .bg-right .bg-inner,
-    .block-cube.block-input .bg-top .bg-inner {
-      transition: all 0.2s ease-in-out;
-    }
+      .block-cube.block-input .bg-top,
+      .block-cube.block-input .bg-right,
+      .block-cube.block-input .bg {
+        background: rgba(255, 255, 255, 0.5);
+        transition: background 0.2s ease-in-out;
+      }
 
-    .block-cube.block-input:focus .bg-top,
-    .block-cube.block-input:focus .bg-right,
-    .block-cube.block-input:focus .bg,
-    .block-cube.block-input:hover .bg-top,
-    .block-cube.block-input:hover .bg-right,
-    .block-cube.block-input:hover .bg {
-      background: rgba(255, 255, 255, 0.8);
-    }
+      .block-cube.block-input .bg-right .bg-inner,
+      .block-cube.block-input .bg-top .bg-inner {
+        transition: all 0.2s ease-in-out;
+      }
 
-    .block-cube.block-cube-hover:focus .bg .bg-inner,
-    .block-cube.block-cube-hover:hover .bg .bg-inner {
-      top: 100%;
-    }
-  </style>
+      .block-cube.block-input:focus .bg-top,
+      .block-cube.block-input:focus .bg-right,
+      .block-cube.block-input:focus .bg,
+      .block-cube.block-input:hover .bg-top,
+      .block-cube.block-input:hover .bg-right,
+      .block-cube.block-input:hover .bg {
+        background: rgba(255, 255, 255, 0.8);
+      }
 
-</head>
+      .block-cube.block-cube-hover:focus .bg .bg-inner,
+      .block-cube.block-cube-hover:hover .bg .bg-inner {
+        top: 100%;
+      }
+      nav {
+        z-index: 20;
+        line-height: 1.4;
+        font-family: "Space Mono", monospace;
+        background: #1d1f20;
+        padding: 25px 35px;
+        height:80%;
+        width:90%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        border-radius: 16px;
+        box-shadow: 0 0 60px -15px black;
+        transform: scale(0) rotate(360deg);
+        transition: all 0.75s;
+        font-size: 18px;
+      }
 
-<body id="particles-js">
+      nav.menu_active {
+        transform: scale(1) rotate(0deg);
+      }
 
-  <!-- Menu starts -->
-  <ul id="gn-menu" class="gn-menu-main">
-    <li class="gn-trigger">
-      <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-      <nav class="gn-menu-wrapper">
-        <div class="gn-scroller">
-          <ul class="gn-menu">
+      nav > ol > li {
+        margin: 20px 0;
+        color: #b5bc67;
+      }
 
-            <li>
-              <a class="#home" style="display: flex;" href="" id="menu-items1">
-                <div class="menu-icons"><i class="material-icons">home</i></div>
-                <div>Home</div>
-              </a>
-            </li>
-            <li>
-              <a class="#events" style="display: flex;" href="" id="menu-items2">
-                <div class="menu-icons"><i class="material-icons" onclick="">event</i></div>
-                <div>Events</div>
-              </a>
-            </li>
-            <li>
-              <a class="#registration" style="display: flex;" href="" id="menu-items3">
-                <div class="menu-icons"><i class="material-icons">person_add</i></div>
-                <div>Registration</div>
-              </a>
-            </li>
-            <li>
-              <a class="#downloads" style="display: flex;" href="" id="menu-items4">
-                <div class="menu-icons"><i class="material-icons">get_app</i></div>
-                <div>Downloads</div>
-              </a>
-            </li>
-            <li>
-              <a class="#organizing_committee" style="display: flex;" href="" id="menu-items5">
-                <div class="menu-icons"><i class="material-icons">people</i></div>
-                <div>Organizing Committee</div>
-              </a>
-            </li>
-          </ul>
-        </div><!-- /gn-scroller -->
+      nav > ol > li:first-of-type {
+        color: #efc371;
+      }
+
+      nav > ol > li > ol {
+        margin: 10px 0 0 20px;
+        border-left: 1px solid #4d4d4c;
+        color: #ae94c0;
+      }
+
+      nav > ol > li > ol > li {
+        margin: 7px 0;
+        padding-left: 20px;
+      }
+
+      nav a:hover {
+        color: #dd925f;
+      }
+
+      .navh3 {
+        position: fixed;
+        font-family: "Roboto Mono", monospace;
+        font-size: 40px;
+        color: #cfd8dc;
+        top:0;
+        left:0;
+        cursor: pointer;
+        transition: all 0.3s;
+        z-index: 10;
+      }
+
+      .navh3:hover {
+        border-bottom: 6px dotted #cfd8dc;
+        padding-bottom: 10px;
+        top: 0;
+      }
+
+      .navp {
+        font-family: "Roboto Mono", monospace;
+        float: right;
+        cursor: pointer;
+        font-size: 16px;
+        color: #cfd8dc;
+        transition: all 0.2s;
+      }
+
+      .navp:hover {
+        border-bottom: 2px dotted #cfd8dc;
+        padding-bottom: 5px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+      <h3 class="navh3" class="btn" onclick="document.getElementsByTagName('nav')[0].className = 'menu menu_active'">&lt;menu/&gt;</h3>
+      <!-- <a class="navh3"  onclick="document.getElementsByTagName('nav')[0].className = 'menu menu_active'"><i class="material-icons">menu</i></a> -->
+      <nav class="menu">
+      <p class="navp" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">&lt;close/&gt;</p>
+      <ol>
+      <li class="menu-item"><a href="#home" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">Home</a></li>
+      <li class="menu-item"><a href="#events" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">Event</a></li>
+      <li class="menu-item">
+        <a href="#home" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">Registration</a>
+      </li>
+      <li class="menu-item">
+        <a href="#home" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">Download</a>
+      </li>
+      <li class="menu-item"><a href="#home" onclick="document.getElementsByTagName('nav')[0].className = 'menu'">Organizing Committee</a></li>
+      </ol>
       </nav>
-    </li>
-    <li>
-      <img class="logo" />
-    </li>
+    </header>
 
-    <li><a class="codrops-icon codrops-icon-drop" style="display: flex;" href="#login">
-        <div style="margin-top: 5px;padding-right: 9px;text-align: center;"><i class="material-icons" style="margin-bottom:10px">person</i></div>
-        <div>Login</div>
-      </a></li>
-  </ul>
-  <!-- Menu Ends -->
+    <!-- Menu starts -->
+    <!-- <ul id="gn-menu" class="gn-menu-main">
+      <li class="gn-trigger">
+        <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+        <nav class="gn-menu-wrapper">
+          <div class="gn-scroller">
+            <ul class="gn-menu">
 
+              <li>
+                <a class="#home" style="display: flex;" href="" id="menu-items1">
+                  <div class="menu-icons">
+                    <i class="material-icons">home</i>
+                  </div>
+                  <div>Home</div>
+                </a>
+              </li>
+              <li>
+                <a class="#events" style="display: flex;" href="" id="menu-items2">
+                  <div class="menu-icons">
+                    <i class="material-icons" onclick="">event</i>
+                  </div>
+                  <div>Events</div>
+                </a>
+              </li>
+              <li>
+                <a class="#registration" style="display: flex;" href="" id="menu-items3">
+                  <div class="menu-icons">
+                    <i class="material-icons">person_add</i>
+                  </div>
+                  <div>Registration</div>
+                </a>
+              </li>
+              <li>
+                <a class="#downloads" style="display: flex;" href="" id="menu-items4">
+                  <div class="menu-icons">
+                    <i class="material-icons">get_app</i>
+                  </div>
+                  <div>Downloads</div>
+                </a>
+              </li>
+              <li>
+                <a class="#organizing_committee" style="display: flex;" href="" id="menu-items5">
+                  <div class="menu-icons">
+                    <i class="material-icons">people</i>
+                  </div>
+                  <div>Organizing Committee</div>
+                </a>
+              </li>
+            </ul>
+          </div> -->
+          <!-- /gn-scroller -->
+        <!-- </nav>
+      </li>
+      <li>
+        <img class="logo" />
+      </li>
 
-  <div style="position: absolute;width: 100%;">
-    <div id="home"></div>
-    <div class="row-custom" style="margin-top: 60px;height:100vh">
-      <div class="top">
-        <div class="row-custom"><img src="images/logo-main.png" height="100%" width="100%" style="margin-top: 10px"></div>
-        <div class=" col-sm-12 col-md-12 col-lg-12">
-          <h1 style="font-family: 'Baloo Bhai', cursive;padding-top: 10px">Launching in</h1>
-          <hr>
+      <li>
+        <a class="codrops-icon codrops-icon-drop" style="display: flex;" href="#login">
+          <div style="margin-top: 5px;padding-right: 9px;text-align: center;">
+            <i class="material-icons" style="margin-bottom:10px">person</i>
+          </div>
+          <div>Login</div>
+        </a>
+      </li>
+    </ul> -->
+    <!-- Menu Ends -->
 
-          <div id="timer" class="timer">
-            <div id="days" class="timer"></div>
-            <div style="display:inline-table;">
-              <div id="hours" class="timer"></div>
-              <div id="minutes" class="timer"></div>
-              <div id="seconds" class="timer"></div>
+    <div style="position: absolute;width: 100%;">
+      <div id="home"></div>
+      <div class="row-custom" style="height:100vh;margin-top:60px">
+        <section class="cd-intro">
+          <div class="cd-intro-content mask-2">
+            <div class="content-wrapper">
+              <div class="top">
+                <div class="row-custom">
+                  <img src="images/logo-main.png" height="100%" width="100%" style="margin-top: 10px">
+                </div>
+                <div class=" col-sm-12 col-md-12 col-lg-12">
+                  <h2 style="font-family: 'Baloo Bhai', cursive;padding-top: 10px">Starting in</h2>
+                  <hr>
+
+                  <div id="timer" class="timer">
+                    <div id="days" class="timer"></div>
+                    <div style="display:inline-table;">
+                      <div id="hours" class="timer"></div>
+                      <div id="minutes" class="timer"></div>
+                      <div id="seconds" class="timer"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
 
-      <div class="row-custom" style="" id="events">
-        <div class="row-custom glow" style="margin-top: 20px">Events</div>
-        <div class="row-custom">
 
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <article class="card-custom card--1">
-              <div class="card__info-hover">
-                <b style="color:black">Click to Open</b>
-              </div>
-              <div class="card__img" style="background-image: url('images/mechanic-3.png');">
-              </div>
-              <a href="#home" class="card_link">
-                <div class="card__img--hover" style="background-image: url('images/mechanic-3.png');">
+        <div class="row-custom" style="" id="events">
+          <div class="row-custom glow" style="margin-top: 20px">Events</div>
+          <div class="row-custom">
+
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <article class="card-custom card--1">
+                <div class="card__info-hover">
+                  <b style="color:black">Click to Open</b>
                 </div>
-              </a>
+                <div class="card__img" style="background-image: url('images/mechanic-3.png');">
+                </div>
+                <a href="#home" class="card_link">
+                  <div class="card__img--hover" style="background-image: url('images/mechanic-3.png');">
+                  </div>
+                </a>
+                <a href="#home">
+                  <div class="card__info">
+                    <h3 class="card__title">Mech-A-Nizer</h3>
+                  </div>
+                </a>
+              </article>
+            </section>
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
               <a href="#home">
-                <div class="card__info">
-                  <h3 class="card__title">Mech-A-Nizer</h3>
-                </div>
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/civil-2.png');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/civil-2.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Constructo</h3>
+                    </div>
+                  </a>
+                </article>
               </a>
-            </article>
-          </section>
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/civil-2.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/civil-2.png');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Constructo</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
+            </section>
 
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/ceit-1.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/ceit-1.png');">
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
                   </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Infocrats</h3>
+                  <div class="card__img" style="background-image: url('images/ceit-1.png');">
                   </div>
-                </a>
-              </article>
-            </a>
-          </section>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/ceit-1.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Infocrats</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
 
+          </div>
+          <div class="row-custom">
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/bm-1.png');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/bm-1.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Bio-Fusion</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/ec2.png');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/ec2.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">ElectroSpectro</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/bulb-1.jpg');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/bulb-1.jpg');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Electabuzz</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+          </div>
+          <div class="row-custom">
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/marine-2.png');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/marine-2.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Tech-Marino</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/maths.png');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/maths.png');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">Eureka-Maths</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+            <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
+              <a href="#home">
+                <article class="card-custom card--1">
+                  <div class="card__info-hover">
+                    <b style="color:black">Click to Open</b>
+                  </div>
+                  <div class="card__img" style="background-image: url('images/common-1.jpg');">
+                  </div>
+                  <a href="#home" class="card_link">
+                    <div class="card__img--hover" style="background-image: url('images/common-1.jpg');">
+                    </div>
+                  </a>
+                  <a href="#home">
+                    <div class="card__info">
+                      <h3 class="card__title">General Events</h3>
+                    </div>
+                  </a>
+                </article>
+              </a>
+            </section>
+
+          </div>
         </div>
-        <div class="row-custom">
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/bm-1.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/bm-1.png');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Bio-Fusion</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/ec2.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/ec2.png');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">ElectroSpectro</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/bulb-1.jpg');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/bulb-1.jpg');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Electabuzz</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-        </div>
-        <div class="row-custom">
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/marine-2.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/marine-2.png');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Tech-Marino</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/maths.png');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/maths.png');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">Eureka-Maths</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-          <section class="cards col-md-4 col-sm-12" style="margin-top: 20px">
-            <a href="#home">
-              <article class="card-custom card--1">
-                <div class="card__info-hover">
-                  <b style="color:black">Click to Open</b>
-                </div>
-                <div class="card__img" style="background-image: url('images/common-1.jpg');">
-                </div>
-                <a href="#home" class="card_link">
-                  <div class="card__img--hover" style="background-image: url('images/common-1.jpg');">
-                  </div>
-                </a>
-                <a href="#home">
-                  <div class="card__info">
-                    <h3 class="card__title">General Events</h3>
-                  </div>
-                </a>
-              </article>
-            </a>
-          </section>
-
-        </div>
-      </div>
 
 
-      <!-- Login popup starts -->
-      <!-- <a class="button" href="">Let me Pop up</a> -->
-      <!-- <div id="popup1" class="overlay">
+        <!-- Login popup starts -->
+        <!-- <a class="button" href="">Let me Pop up</a> -->
+        <!-- <div id="popup1" class="overlay">
         <div class="popup">
           <h2>Here i am</h2>
           <a class="close" href="#">&times;</a>
@@ -515,101 +645,107 @@
             <p class="forgot" align="center"><a href="#">Forgot Password?</p>
         </div>
       </div> -->
-      <div id="login" class="overlay">
-        <div class="popup">
-          <a class="close" href="#">&times;</a>
+        <div id="login" class="overlay">
+          <div class="popup">
+            <a class="close" href="#">&times;</a>
+            <div class="row-custom">
+              <form autocomplete='off' class='form'>
+                <div class='control'>
+                  <h1 class=".h1" style="color: white">
+                    Sign In
+                  </h1>
+                </div>
+                <div class='control block-cube block-input'>
+                  <input name='username' placeholder='Username' type='text'>
+                  <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg'>
+                    <div class='bg-inner'></div>
+                  </div>
+                </div>
+                <div class='control block-cube block-input'>
+                  <input name='password' placeholder='Password' type='password'>
+                  <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg'>
+                    <div class='bg-inner'></div>
+                  </div>
+                </div>
+                <button class='btn block-cube block-cube-hover' type='button'>
+                  <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='bg'>
+                    <div class='bg-inner'></div>
+                  </div>
+                  <div class='text'>
+                    Log In
+                  </div>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+        <!-- Login popup ends -->
+
+
+        <!-- footer starts here -->
+        <div class="row-custom footer">
           <div class="row-custom">
-            <form autocomplete='off' class='form'>
-              <div class='control'>
-                <h1 class=".h1" style="color: white">
-                  Sign In
-                </h1>
-              </div>
-              <div class='control block-cube block-input'>
-                <input name='username' placeholder='Username' type='text'>
-                <div class='bg-top'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg-right'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg'>
-                  <div class='bg-inner'></div>
-                </div>
-              </div>
-              <div class='control block-cube block-input'>
-                <input name='password' placeholder='Password' type='password'>
-                <div class='bg-top'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg-right'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg'>
-                  <div class='bg-inner'></div>
-                </div>
-              </div>
-              <button class='btn block-cube block-cube-hover' type='button'>
-                <div class='bg-top'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg-right'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='bg'>
-                  <div class='bg-inner'></div>
-                </div>
-                <div class='text'>
-                  Log In
-                </div>
-              </button>
-            </form>
-          </div>
+            <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
+              <center>
+                <a href="http://www.uvpce.ac.in">
+                  <img class="img-responsive" class="" style="max-height:250px !important;max-width:200px !important; " src="images/logo.png" />
+                </a>
+              </center>
+            </div>
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
+              <center>
+                <a href="https://www.facebook.com/convergence.uvpce/" target="_blank" class="btn btn-fab">
+                  <img src="images/Social_Icons/facebook.png" class="img-responsive" height="100%" width="100%">
+                </a>
+                <a href="https://plus.google.com/u/0/+ConvergenceUvpce" target="_blank" class="btn btn-fab">
+                  <img src="images/Social_Icons/google-plus.png" class="img-responsive" height="100%" width="100%">
+                </a>
 
+                <a href="https://www.instagram.com/convergence_17/" target="_blank" class="btn btn-fab">
+                  <img src="images/Social_Icons/instagram.png" class="img-responsive" height="100%" width="100%">
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCULP6Pp1dsmWvX-lKp4RCCA" target="_blank" class="btn btn-fab">
+                  <img src="images/Social_Icons/youtube.png" class="img-responsive" height="100%" width="100%">
+                </a>
+              </center>
+            </div>
+          </div>
+          <div class="row-custom" style="color:white;display:inline-block;text-align:center;padding-bottom:10px;padding-top: 30px;">
+            &copy;All Copyrights reserved to UVPCE.
+          </div>
         </div>
+        <!-- footer ends here -->
       </div>
-      <!-- Login popup ends -->
-
-
-      <!-- footer starts here -->
-      <div class="row-custom footer">
-        <div class="row-custom">
-          <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
-            <center>
-              <a href="http://www.uvpce.ac.in">
-                <img class="img-responsive" class="" style="max-height:250px !important;max-width:200px !important; " src="images/logo.png" />
-              </a>
-            </center>
-          </div>
-          <div class="col-md-4 col-lg-4"></div>
-          <div class="col-md-4 col-sm-12 col-lg-4" style="padding-top: 30px;">
-            <center>
-              <a href="https://www.facebook.com/convergence.uvpce/" target="_blank" class="btn btn-fab">
-                <img src="images/Social_Icons/facebook.png" class="img-responsive" height="100%" width="100%"></a>
-              <a href="https://plus.google.com/u/0/+ConvergenceUvpce" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/google-plus.png" class="img-responsive" height="100%" width="100%"></a>
-
-              <a href="https://www.instagram.com/convergence_17/" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/instagram.png" class="img-responsive" height="100%" width="100%"></a>
-
-              <a href="https://www.youtube.com/channel/UCULP6Pp1dsmWvX-lKp4RCCA" target="_blank" class="btn btn-fab"><img src="images/Social_Icons/youtube.png" class="img-responsive" height="100%" width="100%"></a>
-            </center>
-          </div>
-        </div>
-        <div class="row-custom" style="color:white;display:inline-block;text-align:center;padding-bottom:10px;padding-top: 30px;">
-          &copy;All Copyrights reserved to UVPCE.
-        </div>
-      </div>
-      <!-- footer ends here -->
     </div>
-  </div>
 
-  <!-- Javascripts -->
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
-  <script src="js/particlesJS.js"></script>
-  <script src="js/classie.js"></script>
-  <script src="js/gnmenu.js"></script>
-  <script>
-    new gnMenu(document.getElementById('gn-menu'));
-  </script>
-</body>
+    <!-- Javascripts -->
+    <script src="js/main.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/gnmenu.js"></script>
+    <script>
+      new gnMenu(document.getElementById('gn-menu'));
+    </script>
+  </body>
 
 </html>

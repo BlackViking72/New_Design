@@ -56,7 +56,7 @@ body, html {
 
 hr {
   margin: auto;
-  width: 40%;
+  width: 50%;
   background-color: white;
 }
 
@@ -74,6 +74,9 @@ hr {
   }*/
   .glow {
     font-size: 70em;
+  }
+  hr {
+    width: 90%;
   }
 }
 
@@ -207,16 +210,16 @@ a:hover {
 /* Track */
 ::-webkit-scrollbar-track {
   /* box-shadow: inset 0 0 5px grey; */
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 2px solid blue;
+  border-radius: 0px;
   background-color: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: black;
   /* background-image: linear-gradient(black,white,grey); */
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 /* Scrollbar ends */
@@ -253,6 +256,7 @@ a:hover {
   width: 40%;
   position: relative;
   transition: all 5s ease-in-out;
+  z-index: 1000;
 }
 
 .popup h2 {
